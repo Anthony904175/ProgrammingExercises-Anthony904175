@@ -54,7 +54,6 @@
       write(*, *)' Printing Matrix'
 
       !ADD CODE HERE
-      write(*,*)'Matrix is not printed correctly'
       write(*, 1000) matrix  
 !
 !
