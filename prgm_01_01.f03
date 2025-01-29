@@ -51,9 +51,10 @@
 !
 !     Do the printing job.
 !
-      write(*,*)' Printing Matrix'
+      write(*, *)' Printing Matrix'
+      write(*, 1000) matrix  
 !
-      ADD CODE HERE
+      !ADD CODE HERE
 !
 !
       return
