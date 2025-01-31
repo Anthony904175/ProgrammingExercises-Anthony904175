@@ -36,7 +36,7 @@
       !
       !     Call the subroutine PrintMatrix to print matrixInA.
       !
-      call PrintMatrix3x3(matrixInA)
+
       
 !     Open the data file and read matrixInB from that file.
       open(unit=inFileUnitB, file=TRIM(fileNameB), status='old',  &
