@@ -53,10 +53,11 @@
 !
       write(*, *)' Printing Matrix'
 
-      !ADD CODE HERE
-      write(*,*)'Matrix is not printed correctly'
-      write(*, 1000) matrix  
-!
+      
+      do i = 1, 3
+            write(*, 1000) matrix(i , :)
+      endDo
+!     
 !
       return
       End Subroutine PrintMatrix3x3
