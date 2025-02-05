@@ -82,7 +82,7 @@
       write(*, *)' Printing Matrix'
 
       do i = 1, 3
-            write(*, 1000) matrix(i , :)
+            write(*, 1000) matrix(:, i)
       endDo
 !
 !           return
