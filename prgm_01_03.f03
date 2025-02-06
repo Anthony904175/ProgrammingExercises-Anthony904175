@@ -30,12 +30,10 @@
             goto 999
       endIf
       do i = 1,3
-            read(inFileUnitA,*) matrixInA(1,i),matrixInA(2,i),matrixInA(3,i)
+            read(inFileUnitA,*) matrixInA(i,1),matrixInA(i,2),matrixInA(i,3)
       endDo
       close(inFileUnitA)
-      !
-      !     Call the subroutine PrintMatrix to print matrixInA.
-      !
+
 
       
 !     Open the data file and read matrixInB from that file.
@@ -46,7 +44,7 @@
             goto 999
       endIf
       do i = 1,3
-            read(inFileUnitB,*) matrixInB(1,i),matrixInB(2,i),matrixInB(3,i)
+            read(inFileUnitB,*) matrixInB(i,1),matrixInB(i,2),matrixInB(i,3)
       endDo
       close(inFileUnitB)
 !
@@ -81,8 +79,10 @@
 !
       write(*, *)' Printing Matrix'
 
+            ! write(*,1000) matrix
+
       do i = 1, 3
-            write(*, 1000) matrix(:, i)
+            write(*, 1000) matrix(i, :)
       endDo
 !
 !           return
