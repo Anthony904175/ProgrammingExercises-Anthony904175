@@ -1,14 +1,13 @@
       Program prgm_01_02
 !
-!     This program reads a 3x3 matrix from a user-provided input file. After the
-!     file is opened and read, it is closed and then printed.
-!
+! This program reads two 3x3 matrices from user-provided input files. After
+! reading the matrices into memory from the files, they are printed in turn.
 !
       implicit none
-      integer,parameter::inFileUnitA=10, inFileUnitB=10
+      integer,parameter::inFileUnitA=10,inFileUnitB=11
       integer::errorFlag,i
-      real,dimension(3,3)::matrixInA, matrixInB
-      character(len=128)::fileNameA, fileNameB
+      real,dimension(3,3)::matrixInA,matrixInB
+      character(len=128)::fileNameA,fileNameB
 !
 !
 !     Start by asking the user for the name of the data file.
@@ -27,12 +26,12 @@
             goto 999
       endIf
       do i = 1,3
-            read(inFileUnitA,*) matrixInA(i,1),matrixInA(i,2),matrixInA(i,3)
+            read(inFileUnitA,*) matrixInA(1,i),matrixInA(2,i),matrixInA(3,i)
       endDo
       close(inFileUnitA)
-      !
-      !     Call the subroutine PrintMatrix to print matrixInA.
-      !
+!
+!     Call the subroutine PrintMatrix to print matrixInA.
+!
       call PrintMatrix3x3(matrixInA)
       
 !     Open the data file and read matrixInB from that file.
@@ -43,12 +42,12 @@
             goto 999
       endIf
       do i = 1,3
-            read(inFileUnitB,*) matrixInB(i,1),matrixInB(i,2),matrixInB(i,3)
+            read(inFileUnitB,*) matrixInB(1,i),matrixInB(2,i),matrixInB(3,i)
       endDo
       close(inFileUnitB)
-      !
-      !     Call the subroutine PrintMatrix to print matrixInA.
-      !
+!
+!     Call the subroutine PrintMatrix to print matrixInA.
+!
       call PrintMatrix3x3(matrixInB)
 !
   999 continue
