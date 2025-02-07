@@ -51,7 +51,7 @@
 !
 !     Do the printing job.
 !
-      write(*, *)' Printing Matrix'
+      write(*, *)' Printing Matrix '
 
       
       do i = 1, 3
