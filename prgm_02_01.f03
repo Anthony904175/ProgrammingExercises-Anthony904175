@@ -31,6 +31,10 @@
 !
 ! *************************************************************************
 ! WRITE CODE HERE TO READ THE ARRAY ELEMENTS FROM THE INPUT FILE.
+      ! write(*,*) Array_Input!'The dimensionality of the matrix is: ', NDim
+      do i = 1, NDim*NDim
+            read(IIn,*) Array_Input(i)
+      endDo
 ! *************************************************************************
 !
 !
@@ -68,6 +72,13 @@
 !
 ! *************************************************************************
 ! WRITE CODE HERE TO READ THE ARRAY ELEMENTS FROM THE INPUT FILE.
+      k = 0
+      do j =1, N
+            do i = 1, M
+                  k = k + 1
+                  AMatOut(i,j) = ArrayIn(k)
+            endDo
+      endDo
 ! *************************************************************************
 !
 !
@@ -95,12 +106,19 @@
 !
 ! *************************************************************************
 ! WRITE CODE HERE TO READ THE ARRAY ELEMENTS FROM THE INPUT FILE.
+      k = 0
+      do j =1, N
+            do i = 1, M
+                  k = k + 1
+                  AMatOut(j,i) = ArrayIn(k)
+            endDo
+      endDo
 ! *************************************************************************
 !
 !
       Return
       End Subroutine Packed2Matrix_RowWise
-      
+
       Subroutine Print_Matrix_Full_Real(AMat,M,N)
 !
 !     This subroutine prints a real matrix that is fully dimension - i.e.,
