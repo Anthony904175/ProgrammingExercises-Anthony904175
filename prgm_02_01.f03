@@ -31,7 +31,6 @@
 !
 ! *************************************************************************
 ! WRITE CODE HERE TO READ THE ARRAY ELEMENTS FROM THE INPUT FILE.
-      ! write(*,*) Array_Input!'The dimensionality of the matrix is: ', NDim
       do i = 1, NDim*NDim
             read(IIn,*) Array_Input(i)
       endDo
