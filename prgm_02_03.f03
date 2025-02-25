@@ -45,7 +45,7 @@
       Write(*,*)' The matrix loaded (column) lower-triangle packed:'
       Call SymmetricPacked2Matrix_LowerPac(NDim,Array_Input,Matrix)
       Call Print_Matrix_Full_Real(Matrix,NDim,NDim)
-      Call SSPEV('***','***',NDim,Array_Input,EVals,EVecs,NDim,  &
+      Call SSPEV('V','L',NDim,Array_Input,EVals,EVecs,NDim,  &
         Temp_Vector,IError)
       If(IError.ne.0) then
         Write(*,*)' Failure in DSPEV.'
@@ -82,8 +82,11 @@
       k = 0
       do j =1, N
             do i = 1, N
-                  k = k + 1
-                  AMatOut(i,j) = ArrayIn(k)
+                  If (i-j+1.gt.0) then
+                        k = k + 1
+                        AMatOut(i,j) = ArrayIn(k)
+                        AMatOut(j,i) = ArrayIn(k)
+                  endIf
             endDo
       endDo
 ! *************************************************************************

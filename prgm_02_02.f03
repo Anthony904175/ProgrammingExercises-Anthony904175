@@ -32,6 +32,7 @@
 !
 ! *************************************************************************
 ! WRITE CODE HERE TO READ THE ARRAY ELEMENTS FROM THE INPUT FILE.
+      ! read(IIn,*) Array_Input
       do i = 1, (NDim*(NDim+1))/2
             read(IIn,*) Array_Input(i)
       endDo
@@ -73,8 +74,11 @@
       k = 0
       do j =1, N
             do i = 1, N
-                  k = k + 1
-                  AMatOut(i,j) = ArrayIn(k)
+                  If (i-j+1.gt.0) then
+                        k = k + 1
+                        AMatOut(i,j) = ArrayIn(k)
+                        AMatOut(j,i) = ArrayIn(k)
+                  endIf
             endDo
       endDo
 ! *************************************************************************
@@ -104,6 +108,16 @@
 !
 ! *************************************************************************
 ! WRITE CODE HERE TO UNPACK ARRYIN INTO AMATOUT.
+      k = 0
+      do j =1, N
+            do i = 1, N
+                  If (j-i+1.gt.0) then
+                        k = k + 1
+                        AMatOut(i,j) = ArrayIn(k)
+                        AMatOut(j,i) = ArrayIn(k)
+                  endIf
+            endDo
+      endDo
 ! *************************************************************************
 !
 !
